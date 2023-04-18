@@ -9,10 +9,13 @@ export default function AllBeers() {
   const [beers, setBeers] = useState([])
 
   useEffect(() => {
-    axios.get("https://ih-beers-api2.herokuapp.com/beers").then((res) => {
-      console.log("response.data", res.data)
-      setBeers(res.data)
-    })
+    axios
+      .get("https://ih-beers-api2.herokuapp.com/beers")
+      .then((res) => {
+        // console.log("response.data", res.data)
+        setBeers(res.data)
+      })
+      .catch(() => console.log("error getting all beers"))
   }, [])
 
   return (
@@ -28,7 +31,7 @@ export default function AllBeers() {
               <Card.Title>{`${beer.name}`}</Card.Title>
               <Card.Text>{`${beer.tagline}`}</Card.Text>
               <Card.Text>{`${beer.contributed_by}`}</Card.Text>
-              <Card.Link href={`/beer/${beer._id}`}>Read more...</Card.Link>
+              <Link to={`/beers/${beer._id}`}>Read more...</Link>
             </Card.Body>
           </Row>
         </Card>

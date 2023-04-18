@@ -4,6 +4,7 @@ import Homepage from "./pages/HomePage"
 import AllBeers from "./pages/AllBeers"
 import RandomBeer from "./pages/RandomBeer"
 import CreateBeer from "./pages/CreateBeer"
+import OneBeer from "./pages/OneBeer"
 
 function App() {
   return (
@@ -18,8 +19,12 @@ function App() {
           element={<AllBeers />}
         />
         <Route
+          path={"/beers/:id"}
+          element={<OneBeer />}
+        />
+        <Route
           path={"/random-beer"}
-          element={<AllBeers />}
+          element={<RandomBeer />}
         />
         <Route
           path={"/new-beer"}
