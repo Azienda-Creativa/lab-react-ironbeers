@@ -1,13 +1,27 @@
 import React from "react"
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 export default function HomePage() {
+  const [query, setQuery] = useState("")
   const navigate = useNavigate()
   const cardWidth = "80vh"
+
+  const formHandler = (e) => {
+    e.preventDefault()
+  }
   return (
     <>
       <h1>Home Page</h1>
+      <Form>
+        <Form.Group>
+          <Form.Label>Search beer</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="search"
+          />
+        </Form.Group>
+      </Form>
       <Card
         className="allBeers m-3"
         style={{ width: cardWidth }}>
