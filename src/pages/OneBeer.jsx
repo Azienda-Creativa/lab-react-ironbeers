@@ -26,11 +26,14 @@ export default function OneBeer() {
       {beer && (
         <Card
           key={beer._id}
-          style={{ width: "40vw", padding: "40px", margin: "16px" }}>
+          style={{ width: "40vw", padding: "40px", margin: "16px auto" }}>
           <Row className="">
             <Card.Title>{`${beer.name}`}</Card.Title>
-            <Card.Img src={`${beer.image_url}`} />
-            <Card.Body>
+            <Card.Img
+              src={`${beer.image_url}`}
+              style={{ height: "20vh", width: "auto", margin: "auto" }}
+            />
+            <Card.Body style={{ display: "flex", justifyContent: "center", flexDirection: "column" }}>
               <Card.Text>{`${beer.tagline}`}</Card.Text>
               <Card.Text>{`${beer.first_brewed}`}</Card.Text>
               <Card.Text>{`${beer.attenuation_level}`}</Card.Text>
